@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  scroll-behavior: smooth;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap");
+
+/* ── CSS Variables ── */
+:root {
+  --bg-gradient: linear-gradient(135deg, #e8f4fd 0%, #dbeeff 40%, #e4f0ff 100%);
+  --glass-bg: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 48px rgba(100, 160, 230, 0.18), 0 2px 12px rgba(100, 160, 230, 0.1);
+  --text-primary: #0f1c2e;
+  --text-secondary: #4a6080;
+  --text-muted: #7a95b0;
+  --accent: #2d7dd2;
+  --accent-light: rgba(45, 125, 210, 0.12);
+  --input-bg: rgba(255, 255, 255, 0.6);
+  --input-border: rgba(180, 210, 240, 0.6);
+  --btn-bg: #2d7dd2;
+  --btn-hover: #1a5fa8;
+  --divider: rgba(150, 190, 230, 0.25);
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --radius-sm: 12px;
+  --radius-lg: 28px;
+  --radius-pill: 50px;
+}
+
+[data-theme="dark"] {
+  --bg-gradient: linear-gradient(135deg, #0a0f1e 0%, #0d1628 50%, #0a1220 100%);
+  --glass-bg: rgba(15, 25, 50, 0.45);
+  --glass-border: rgba(60, 100, 160, 0.3);
+  --glass-shadow: 0 8px 48px rgba(0, 20, 60, 0.5), 0 2px 12px rgba(0, 40, 100, 0.3);
+  --text-primary: #e8f2ff;
+  --text-secondary: #8ab0d8;
+  --text-muted: #4a6888;
+  --accent: #4d9fec;
+  --accent-light: rgba(77, 159, 236, 0.12);
+  --input-bg: rgba(20, 35, 65, 0.6);
+  --input-border: rgba(60, 100, 160, 0.4);
+  --btn-hover: #4d9fec;
+  --divider: rgba(60, 100, 160, 0.2);
+}
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease;
+}
+
+/* Ambient blobs */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(100, 180, 255, 0.25), transparent 70%);
+  top: -100px;
+  left: -100px;
+}
+
+body::after {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(150, 200, 255, 0.2), transparent 70%);
+  bottom: -80px;
+  right: -80px;
+}
