@@ -157,3 +157,9 @@ main {
   content: "🌙";
   transform: translateX(26px);
 }
+
+[data-theme="dark"] .forecastDay,
+[data-theme="dark"] .forecastTemperatureMax,
+[data-theme="dark"] .forecastTemperatureMin {
+  color: var(--text-primary);
+}

@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import SearchForm from "./components/SearchForm";
+import WeatherForecast from "./components/WeatherForecast";
+import axios from "axios";
 
 import "./App.css";
 
 function App(props) {
   const [weatherData, setWeatherData] = useState(null);
   const [isDark, setIsDark] = useState(false);
+  const [forecastData, setForecastData] = useState(null);
+
+  useEffect(() => {
+    const apiURL = `https://api.shecodes.io/weather/v1/current?query=Barcelona&key=b0cf77c269o45df36f49efa3fdta040a&units=metric`;
+    axios.get(apiURL).then(handleWeatherData);
+  }, []);
 
   function toggleTheme() {
     setIsDark(!isDark);
@@ -20,6 +28,11 @@ function App(props) {
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
+    });
+
+    const forecastURL = `https://api.shecodes.io/weather/v1/forecast?query=${response.data.city}&key=b0cf77c269o45df36f49efa3fdta040a&units=metric`;
+    axios.get(forecastURL).then((forecastResponse) => {
+      setForecastData(forecastResponse.data.daily);
     });
   }
 
@@ -49,6 +62,7 @@ function App(props) {
             </div>
           </div>
         )}
+        <WeatherForecast forecastData={forecastData} />
       </div>
     </main>
   );
