@@ -5,6 +5,7 @@ import WeatherForecast from "./components/WeatherForecast";
 import axios from "axios";
 
 import "./App.css";
+import Footer from "./components/Footer";
 
 function App(props) {
   const [weatherData, setWeatherData] = useState(null);
@@ -37,34 +38,37 @@ function App(props) {
   }
 
   return (
-    <main>
-      <button className="theme-toggle" onClick={toggleTheme}></button>
-      <div className="weatherContainer">
-        <h1>Weather App</h1>
-        <SearchForm handleWeatherData={handleWeatherData} />
+    <>
+      <main>
+        <button className="theme-toggle" onClick={toggleTheme}></button>
+        <div className="weatherContainer">
+          <h1>Weather App</h1>
+          <SearchForm handleWeatherData={handleWeatherData} />
 
-        {weatherData && (
-          <div className="weatherInfo">
-            <div className="city-date">
-              <h2 className="city">{weatherData.city}</h2>
-              <ul>
-                <li className="date">{weatherData.time}</li>
-                <li>
-                  Humidity: <strong>{weatherData.humidity}</strong> Wind:{" "}
-                  <strong>{Math.round(weatherData.wind * 3.6)} km/h</strong>
-                </li>
-              </ul>
-            </div>
+          {weatherData && (
+            <div className="weatherInfo">
+              <div className="city-date">
+                <h2 className="city">{weatherData.city}</h2>
+                <ul>
+                  <li className="date">{weatherData.time}</li>
+                  <li>
+                    Humidity: <strong>{weatherData.humidity}</strong> Wind:{" "}
+                    <strong>{Math.round(weatherData.wind * 3.6)} km/h</strong>
+                  </li>
+                </ul>
+              </div>
 
-            <div className="temperatureUnit">
-              <span className="temperature">{Math.round(weatherData.temperature)}</span>
-              <span className="unit">°C</span>
+              <div className="temperatureUnit">
+                <span className="temperature">{Math.round(weatherData.temperature)}</span>
+                <span className="unit">°C</span>
+              </div>
             </div>
-          </div>
-        )}
-        <WeatherForecast forecastData={forecastData} />
-      </div>
-    </main>
+          )}
+          <WeatherForecast forecastData={forecastData} />
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }
 
