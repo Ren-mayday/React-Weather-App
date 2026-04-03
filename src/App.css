@@ -11,16 +11,17 @@ main {
 /* ── Weather Container ── */
 .weatherContainer {
   background: var(--glass-bg);
-  backdrop-filter: blur(40px) saturate(200%) brightness(110%);
-  -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(110%);
+  backdrop-filter: blur(40px) saturate(180%) brightness(108%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(108%);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--glass-shadow);
-  padding: 2.5rem 2.8rem;
+  padding: 2.5rem 2.8rem 0; /* Sin padding-bottom: lo gestiono al footer */
   width: 100%;
-  max-width: 520px;
+  max-width: 620px;
   transition: all 0.4s ease;
   animation: fadeUp 0.6s ease forwards;
+  overflow: hidden;
 }
 
 @keyframes fadeUp {
@@ -38,22 +39,25 @@ main {
 .weatherContainer h1 {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.6rem;
   text-transform: uppercase;
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 /* ── Weather Info ── */
+
 .weatherInfo {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   border-top: 1px solid var(--divider);
-  padding-top: 1.8rem;
+  padding-top: 1.6rem;
+  margin-bottom: 1.8rem;
   animation: fadeUp 0.4s ease forwards;
+  gap: 1rem;
 }
 
 .city {
@@ -72,7 +76,7 @@ main {
 }
 
 .date {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--accent);
   font-weight: 500;
   text-transform: uppercase;
@@ -94,6 +98,7 @@ main {
   display: flex;
   align-items: flex-start;
   gap: 0.2rem;
+  flex-shrink: 0;
 }
 
 .temperature {
@@ -162,4 +167,43 @@ main {
 [data-theme="dark"] .forecastTemperatureMax,
 [data-theme="dark"] .forecastTemperatureMin {
   color: var(--text-primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .weatherContainer {
+    max-width: 100%;
+    border-radius: 20px;
+    padding: 2rem 1.6rem 0;
+  }
+
+  .weatherInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .temperature {
+    font-size: 4rem;
+  }
+
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .weatherContainer {
+    padding: 1.6rem 1.2rem 0;
+    border-radius: 16px;
+  }
+
+  .city {
+    font-size: 1.5rem;
+  }
+
+  .temperature {
+    font-size: 3.4rem;
+  }
 }

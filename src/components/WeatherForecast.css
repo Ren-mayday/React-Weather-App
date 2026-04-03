@@ -1,3 +1,14 @@
 .weatherForecast {
   display: flex;
+  flex-wrap: nowrap;
+  gap: 0.4;
+  padding: 1.4rem 0 1.6rem;
+  border-top: 1px solid var(--divider);
+  overflow-x: auto;
+  scrollbar-width: none; /* oculta scrollbar en Firefox */
+  -ms-overflow-style: none; /* oculta scrollbar en IE */
+}
+
+.weatherForecast::-webkit-scrollbar {
+  display: none; /* oculta scrollbar en Chrome/Safari */
 }

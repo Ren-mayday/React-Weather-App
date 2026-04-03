@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
 import SearchForm from "./components/SearchForm";
 import WeatherForecast from "./components/WeatherForecast";
-import axios from "axios";
-
-import "./App.css";
 import Footer from "./components/Footer";
+import axios from "axios";
+import "./App.css";
 
 function App(props) {
   const [weatherData, setWeatherData] = useState(null);
@@ -65,9 +63,9 @@ function App(props) {
             </div>
           )}
           <WeatherForecast forecastData={forecastData} />
+          <Footer />
         </div>
       </main>
-      <Footer />
     </>
   );
 }

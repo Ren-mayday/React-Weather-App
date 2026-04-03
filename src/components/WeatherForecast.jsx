@@ -5,7 +5,7 @@ import "./WeatherForecast.css";
 const WeatherForecast = (props) => {
   return (
     <div className="weatherForecast">
-      {props.forecastData && props.forecastData.slice(1, 5).map((day, index) => <ForecastDay day={day} key={index} />)}
+      {props.forecastData && props.forecastData.slice(1, 6).map((day, index) => <ForecastDay day={day} key={index} />)}
     </div>
   );
 };

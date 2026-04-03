@@ -4,6 +4,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer>
+      <hr />
       <a href="https://github.com/Ren-mayday/React-Weather-App">Rencel's Github Project</a>
     </footer>
   );
