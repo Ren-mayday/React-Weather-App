@@ -67,7 +67,8 @@
 
 /* ── Dark Theme ── */
 [data-theme="dark"] {
-  --bg-gradient: linear-gradient(135deg, #1a0f18 0%, #0f1a28 55%, #160f1e 100%);
+  /* HD19 C85M70Y20 — azul medianoche bg */
+  --bg-gradient: linear-gradient(135deg, #37538e 0%, #2a3f70 55%, #1e2e54 100%);
 
   --glass-bg: rgba(30, 15, 28, 0.55);
   --glass-border: rgba(136, 70, 108, 0.25);

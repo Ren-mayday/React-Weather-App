@@ -13,14 +13,19 @@ footer hr {
   opacity: 0.8;
 }
 
+#footer-text {
+  color: var(--accent);
+  opacity: 0.85;
+}
+
 footer a {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   color: var(--footer-link);
   text-decoration: none;
-  opacity: 0.7;
+  opacity: 0.85;
   transition:
     opacity 0.2s ease,
     color 0.2s ease;

@@ -1,7 +1,58 @@
+.weatherForecastPreview {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.75rem 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+  cursor: default;
+}
+
+.weatherForecastPreview:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+.forecastDay {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* Icono encima de temperaturas */
 .weatherForecastPreview img {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   object-fit: contain;
+  margin: 0.2rem 0;
+}
+
+/* Bloque etiqueta + número */
+.forecast-temp-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05rem;
+}
+
+.forecast-temp-label {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1;
 }
 
 .forecastTemperatureMax {
@@ -13,24 +64,25 @@
 }
 
 .forecastTemperatureMin {
-  font-size: 0.78rem;
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--text-muted);
   line-height: 1;
 }
 
-/* ── Responsive ── */
 @media (max-width: 420px) {
   .weatherForecastPreview {
     padding: 0.6rem 0.3rem;
   }
-
   .weatherForecastPreview img {
     width: 28px;
     height: 28px;
   }
-
   .forecastTemperatureMax {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+  }
+  .forecastTemperatureMin {
+    font-size: 0.75rem;
   }
 }

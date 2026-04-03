@@ -5,7 +5,10 @@ const Footer = () => {
   return (
     <footer>
       <hr />
-      <a href="https://github.com/Ren-mayday/React-Weather-App">Rencel's Github Project</a>
+      <p id="footer-text">
+        This project was coded by <a href="https://github.com/Ren-mayday">Rencel DC </a>and is open-sourced on{" "}
+        <a href="https://github.com/Ren-mayday/React-Weather-App">Github</a>
+      </p>
     </footer>
   );
 };
