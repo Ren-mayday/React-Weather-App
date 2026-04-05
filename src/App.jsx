@@ -9,6 +9,7 @@ function App(props) {
   const [weatherData, setWeatherData] = useState(null);
   const [isDark, setIsDark] = useState(false);
   const [forecastData, setForecastData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const apiURL = `https://api.shecodes.io/weather/v1/current?query=Barcelona&key=b0cf77c269o45df36f49efa3fdta040a&units=metric`;
@@ -32,18 +33,42 @@ function App(props) {
     const forecastURL = `https://api.shecodes.io/weather/v1/forecast?query=${response.data.city}&key=b0cf77c269o45df36f49efa3fdta040a&units=metric`;
     axios.get(forecastURL).then((forecastResponse) => {
       setForecastData(forecastResponse.data.daily);
+      setIsLoading(false);
     });
   }
 
   return (
-    <>
-      <main>
-        <button className="theme-toggle" onClick={toggleTheme}></button>
-        <div className="weatherContainer">
-          <h1>Weather App</h1>
-          <SearchForm handleWeatherData={handleWeatherData} />
+    <main>
+      <button className="theme-toggle" onClick={toggleTheme}></button>
 
-          {weatherData && (
+      <div className="weatherContainer">
+        <h1>Weather App</h1>
+        <SearchForm handleWeatherData={handleWeatherData} />
+
+        {isLoading ? (
+          /* -Skeleton- */
+          <div className="skeleton-wrapper">
+            <div className="skeleton-info">
+              <div className="skeleton-left">
+                <div className="skeleton skeleton-city" />
+                <di className="skeleton skeleton-date" />
+                <div className="skeleton skeleton-meta" />
+              </div>
+              <div className="skeleton skeleton-temp" />
+            </div>
+            <div className="skeleton-forecast">
+              {[...Array(5)].map((_, i) => (
+                <div className="skeleton-card" key={i}>
+                  <div className="skeleton skeleton-day" />
+                  <div className="skeleton skeleton-icon" />
+                  <div className="skeleton skeleton-tmax" />
+                  <div className="skeleton skeleton-tmin" />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <>
             <div className="weatherInfo">
               <div className="city-date">
                 <h2 className="city">{weatherData.city}</h2>
@@ -61,12 +86,13 @@ function App(props) {
                 <span className="unit">°C</span>
               </div>
             </div>
-          )}
-          <WeatherForecast forecastData={forecastData} />
-          <Footer />
-        </div>
-      </main>
-    </>
+            <WeatherForecast forecastData={forecastData} />
+          </>
+        )}
+
+        <Footer />
+      </div>
+    </main>
   );
 }
 

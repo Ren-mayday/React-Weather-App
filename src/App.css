@@ -207,3 +207,111 @@ main {
     font-size: 3.4rem;
   }
 }
+
+/* ── Skeleton Loader ── */
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: -400px 0;
+  }
+}
+
+.skeleton {
+  border-radius: 6px;
+  background: linear-gardient(90deg, var(--divider) 25%, var(--accent-light) 50%, var(--divider) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+/* Zona weatherInfo*/
+.skeleton-wrapper {
+  border-top: 1px solid var(--divider);
+  padding-top: 1.6rem;
+  margin-top: 0;
+  animation: fadeUp 0.4s ease forwards;
+}
+
+.skeleton-info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 1.8rem;
+  gap: 1rem;
+}
+
+.skeleton-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skeleton-city {
+  width: 140px;
+  height: 28px;
+}
+.skeleton-date {
+  width: 90px;
+  height: 13px;
+}
+.skeleton-meta {
+  width: 170px;
+  height: 13px;
+}
+.skeleton-temp {
+  width: 90px;
+  height: 80px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* Zona forecast */
+.skeleton-forecast {
+  display: flex;
+  gap: 0.4rem;
+  padding: 1.4rem 0 1.6rem;
+  border-top: 1px solid var(--divider);
+}
+
+.skeleton-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-day {
+  width: 28px;
+  height: 10px;
+}
+.skeleton-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+.skeleton-tmax {
+  width: 24px;
+  height: 14px;
+}
+.skeleton-tmin {
+  width: 20px;
+  height: 12px;
+}
+
+/* Responsive skeleton */
+@media (max-width: 680px) {
+  .skeleton-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .skeleton-temp {
+    width: 70px;
+    height: 64px;
+  }
+}
