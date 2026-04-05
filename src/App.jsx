@@ -7,8 +7,13 @@ import "./App.css";
 
 function App(props) {
   const [weatherData, setWeatherData] = useState(null);
-  const [isDark, setIsDark] = useState(false);
   const [forecastData, setForecastData] = useState(null);
+  const [isDark, setIsDark] = useState(() => {
+    const hour = new Date().getHours();
+    const dark = hour >= 20 || hour < 7;
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    return dark;
+  });
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
